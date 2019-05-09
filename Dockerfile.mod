@@ -1,25 +1,27 @@
-# Dockerfile References: https://docs.docker.com/engine/reference/builder/
+FROM golang:1.12-alpine
 
-# Start from golang v1.11 base image
-FROM golang:1.11
-
-# Add Maintainer Info
-LABEL maintainer="Rajeev Singh <rajeevhub@gmail.com>"
+RUN apk add --no-cache git
 
 # Set the Current Working Directory inside the container
-WORKDIR $GOPATH/src/github.com/callicoder/go-docker
+WORKDIR /app/go-sample-app
 
-# Copy everything from the current directory to the PWD(Present Working Directory) inside the container
+# We want to populate the module cache based on the go.{mod,sum} files.
+COPY go.mod .
+COPY go.sum .
+
+RUN go mod download
+
 COPY . .
 
-# Enable Go Modules
-ENV GO111MODULE=on
+# Unit tests
+RUN CGO_ENABLED=0 go test -v
 
 # Build the Go app
-RUN go build -o ./out/go-docker .
+RUN go build -o ./out/go-sample-app .
+
 
 # This container exposes port 8080 to the outside world
 EXPOSE 8080
 
 # Run the binary program produced by `go install`
-CMD ["./out/go-docker"]
+CMD ["./out/go-sample-app"]
