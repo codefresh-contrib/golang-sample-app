@@ -1,0 +1,5 @@
+hello_server
+golang-sample-app
+out/
+vendor/
+_vendor-*
