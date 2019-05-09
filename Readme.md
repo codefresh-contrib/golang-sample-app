@@ -8,7 +8,7 @@ Normal docker build (not using modules) - image size is 775MB
 
 `docker build . -t go-sample-app-full`
 
-Optimized Build (with modules and unit tests) - image size is 389MB
+Optimized Build (with modules - image size is 389MB
 
 `docker build . -f Dockerfile.mod -t go-sample-app-modules`
 
