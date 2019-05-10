@@ -25,5 +25,15 @@ and then visit in your browser
 * http://localhost:8080/
 * http://localhost:8080/?name=John
 
+## Build in Codefresh
+
+Sample pipelines:
+
+* [Simple pipeline](codefresh.yml)
+* [Pipeline with Go modules](codefresh-gomod.yml)
+* [Multistage Docker image](codefresh-multi-stage.yml)
+
+Read https://codefresh.io/docs/docs/learn-by-example/golang/golang-hello-world/ for more details
+
 
 
