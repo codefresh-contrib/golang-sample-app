@@ -30,8 +30,8 @@ and then visit in your browser
 Sample pipelines:
 
 * [Simple pipeline](codefresh.yml)
-* [Pipeline with Go modules](codefresh-gomod.yml)
-* [Multistage Docker image](codefresh-multi-stage.yml)
+* [Pipeline with Go modules and unit tests](codefresh-gomod.yml)
+* [Multistage Docker image and embedded unit tests](codefresh-multi-stage.yml)
 
 Read https://codefresh.io/docs/docs/learn-by-example/golang/golang-hello-world/ for more details
 
